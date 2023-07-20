@@ -3,6 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>User Registration Form</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 <style>
@@ -38,7 +39,7 @@
 <div class="container">
 	<h2 class="hi" > GFG User Registration </h2>
 	<h4 class="y" >Note : fill following details !</h4>
-	<form action="{{ url_for('register') }}" method="post">
+	<form id="form1" method="post">
 		{% if message is defined and message %}
 			<div class="alert alert-warning"> <strong> {{ message }} ???? </strong></div>
 		{% endif %}
@@ -47,10 +48,10 @@
 			<label class="gfg">Name:</label>
 			<input class="ok" type="text" class="form-control" id="username" name="username" placeholder="Enter name" name="name">
 		</div>
-		<div class="form-group">
-			<label class="gfg">Email:</label>
-			<input class="ok" type="email" class="form-control" id="email" name="email" placeholder="Enter email" name="email">
-		</div>
+<!--		<div class="form-group">-->
+<!--			<label class="gfg">Email:</label>-->
+<!--			<input class="ok" type="email" class="form-control" id="email" name="email" placeholder="Enter email" name="email">-->
+<!--		</div>-->
 		<div class="form-group">
 			<label class="gf">Password:</label>
 		<input class="ok" type="password" class="form-control" id="password" name="password" placeholder="Enter password" name="pswd">
@@ -59,5 +60,40 @@
 		<p class="bottom">Already have an account? <a class="bottom" href="{{url_for('login')}}"> Login here</a></p>
 	</form>
 </div>
+
+<script>
+			$(document).ready(function() {
+				$("#form1").on("submit", function(event) {
+					alert("Form submit");
+					const date = new Date();
+					const hour = date.getHours();
+					const minute = date.getMinutes();
+					const str_time = hour+":"+minute;
+					var username = $("#username").val();
+					var password = $("#password").val();
+
+					let url = `/api_register`;
+					$.ajax({
+						data: {
+							username: username,
+							password: password,
+						},
+						type: "GET",
+						url: url,
+					}).done(function(data) {
+
+						console.log(data);
+						alert(data)
+					}.error(function(data) {
+
+						console.log(data);
+						alert(data)
+					});
+					event.preventDefault();
+				});
+			});
+
+
+		</script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<title>User Login Form </title>
+<title>User Update </title>
 
 </head>
 <style>
@@ -37,7 +37,7 @@
 </style>
 <body>
 <div class="container">
-	<h2 class="hi" > GFG User Login </h2>
+	<h2 class="hi" > GFG User Update </h2>
 	<h4 class="y" >Note : fill following details !</h4>
 	<form id="loginform" method="post">
 		{% if message is defined and message %}
@@ -46,7 +46,12 @@
 		<br>
 		<div class="form-group">
 			<label class="gfg">Name:</label>
-			<input class="ok" type="text" class="form-control" id="username" name="name" placeholder="Enter name" name="name">
+			<input class="ok" type="text" class="form-control" id="userid" name="userid" placeholder="userid">
+		</div>
+
+		<div class="form-group">
+			<label class="gfg">Name:</label>
+			<input class="ok" type="text" class="form-control" id="username" name="username" placeholder="Enter new user name" >
 		</div>
 <!--		<div class="form-group">-->
 <!--			<label class="gfg">Email:</label>-->
@@ -54,9 +59,9 @@
 <!--		</div>-->
 		<div class="form-group">
 			<label class="gf">Password:</label>
-		<input class="ok" type="password" class="form-control" id="password" name="password" placeholder="Enter password" name="pswd">
+		<input class="ok" type="password" class="form-control" id="password" name="password" placeholder="Enter new password" >
 		</div>
-		<button class="btn" type="submit" class="btn btn-primary">Login</button>
+		<button class="btn" type="submit" class="btn btn-primary">Submit</button>
 
 	</form>
 </div>
@@ -65,13 +70,15 @@
 				$("#loginform").on("submit", function(event) {
 					alert("Form submit");
 
+					var userid = $("#userid").val();
 					var username = $("#username").val();
 					var password = $("#password").val();
 
-					let url = `/api_login`;
+					let url = `/api_update`;
 					$.ajax({
 						data: {
 							username: username,
+							userid: userid,
 							password: password,
 						},
 						type: "GET",
