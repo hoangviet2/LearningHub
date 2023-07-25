@@ -7,11 +7,10 @@ import {
 } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import DashBoard from "./DashBoard";
-const App = () => (
-  <Routes>
-    <Route path="/" element={<LandingPage />} />
-    <Route path="/dashboard" element={<DashBoard />} />
-  </Routes>
+const Login = () => (
+  <div>
+    Hello
+  </div>
 );
 
-export default App;
+export default Login;
