@@ -10,6 +10,8 @@ import DashBoard from "./DashBoard";
 import { ProtectedRoute, UnAuthRoute, UserAuthContextProvider } from "./firebase/firebase";
 import Login from "./components/Login";
 import SignUp from "./components/Signup";
+import { ContextProvider } from './contexts/ContextProvider';
+import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 const App = () => (
   <UserAuthContextProvider>
     <Routes>
@@ -18,7 +20,9 @@ const App = () => (
       }/>
       <Route path="/dashboard" element={
         <ProtectedRoute>
-          <DashBoard />
+          <ContextProvider>
+            <DashBoard />
+          </ContextProvider>
         </ProtectedRoute>
       }/>
       <Route path="/login" element={
