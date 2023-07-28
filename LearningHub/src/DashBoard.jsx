@@ -5,16 +5,19 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { UserAuthContextProvider } from "./firebase/firebase";
+import { UserAuthContextProvider,ProtectedRoute } from "./firebase/firebase";
 import Login from "./components/Login";
-const DashBoard = () => (
-    <UserAuthContextProvider>
-        <Routes>
-            <Route path="/login" element={
-                <Login/>
-            }/>
-        </Routes>
-    </UserAuthContextProvider>
-);
+import { useUserAuth } from "./firebase/firebase";
+const DashBoard = () => {
+  const { signOutFirebase } = useUserAuth();
+  function signOut(){
+    signOutFirebase();
+  }
+  return(
+    <div>Hi</div>
+   
+  );
+}
+
 
 export default DashBoard;

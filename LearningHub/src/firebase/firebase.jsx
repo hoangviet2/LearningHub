@@ -2,9 +2,10 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import firebaseConfig from "./config";
+import { Navigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { Loading } from "../components/additionalComponents/Loading";
-import {getFirestore} from "firebase/firestore";
+import {getFirestore , setDoc, doc} from "firebase/firestore";
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
@@ -24,6 +25,9 @@ const createUserFirestore = async (user,email) => {
       badge: 0
     })
   }catch(error){alert(error.message)}
+}
+export function useUserAuth() {
+    return useContext(userAuthContext);
 }
 
 
@@ -88,10 +92,28 @@ export function UserAuthContextProvider({children}){
     },[])
 
     return(
-        <userAuthContext.provider
+        <userAuthContext.Provider
             value={{user, loginFirebase, signUpFirebase, signOutFirebase}}
         >
             { user !== undefined ? children : <Loading/> }
-        </userAuthContext.provider>
+        </userAuthContext.Provider>
     )
+}
+
+export const ProtectedRoute = ({children}) => {
+    const { user } = useUserAuth();
+    if(!user){
+      return <Navigate to="/login"/>;
+    }else{
+      return children;
+    }
+}
+
+export const UnAuthRoute = ({children}) => {
+    const { user } = useUserAuth();
+    if(user){
+      return <Navigate to="/dashboard"/>;
+    }else{
+      return children;
+    }
 }
