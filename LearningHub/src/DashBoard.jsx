@@ -2,9 +2,9 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Outlet,
 } from "react-router-dom";
 import { Navbar, Footer, Sidebar, ThemeSettings } from './dashboardComponents';
-import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import React, { useEffect } from 'react';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
@@ -63,7 +63,7 @@ const DashBoard = () => {
             </div>
             <div>
               {themeSettings && (<ThemeSettings />)}
-              <Ecommerce />
+              <Outlet/>
             </div>
             <Footer />
           </div>

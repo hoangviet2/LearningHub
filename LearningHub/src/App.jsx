@@ -1,4 +1,4 @@
-import styles from "./style";
+
 import { Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from "./components";
 import {
   BrowserRouter as Router,
@@ -11,7 +11,9 @@ import { ProtectedRoute, UnAuthRoute, UserAuthContextProvider } from "./firebase
 import Login from "./components/Login";
 import SignUp from "./components/Signup";
 import { ContextProvider } from './contexts/ContextProvider';
+import WaitingRoom from "./components/WaitingRoom";
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+
 const App = () => (
   <UserAuthContextProvider>
     <Routes>
@@ -24,11 +26,21 @@ const App = () => (
             <DashBoard />
           </ContextProvider>
         </ProtectedRoute>
-      }/>
+      }>
+        <Route path="orders" element={
+          <Orders />
+        }/>
+        
+      </Route>
       <Route path="/login" element={
         <UnAuthRoute>
           <Login />
         </UnAuthRoute>
+      }/>
+      <Route path="/louge" element={
+        <ProtectedRoute>
+          <WaitingRoom />
+        </ProtectedRoute>
       }/>
       <Route path="/signup" element={
         <UnAuthRoute>
