@@ -12,7 +12,7 @@ import Login from "./components/Login";
 import SignUp from "./components/Signup";
 import { ContextProvider } from './contexts/ContextProvider';
 import WaitingRoom from "./components/WaitingRoom";
-import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+import Newsfeed from "./Pages/Newsfeeds";
 
 const App = () => (
   <UserAuthContextProvider>
@@ -27,8 +27,8 @@ const App = () => (
           </ContextProvider>
         </ProtectedRoute>
       }>
-        <Route path="orders" element={
-          <Orders />
+        <Route path="newsfeed" element={
+          <Newsfeed />
         }/>
         
       </Route>
