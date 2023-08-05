@@ -14,14 +14,14 @@ export const db = getFirestore(app);
 
 export const userAuthContext = createContext();
 
-const createUserFirestore = async (user,email) => {
+const createUserFirestore = async (user,email,name) => {
     if (!user) return;
     try{
     //create new document inside 'parking_lots' collection with key [user.uid]
     await setDoc(doc(db, "users", user.uid),{
       email: email,
       doulingoProfile: [],
-      name: "",
+      name: name,
       badge: 0
     })
   }catch(error){alert(error.message)}
@@ -57,12 +57,12 @@ export function UserAuthContextProvider({children}){
         return response;
     };
 
-    const signUpFirebase = async (email,password) => {
+    const signUpFirebase = async (email,password,name) => {
         let response;
         if(email !== '' && password !== ''){
             response = await createUserWithEmailAndPassword(auth,email,password)
                 .then((userCredentials) => {
-                    createUserFirestore(userCredentials.user, email);
+                    createUserFirestore(userCredentials.user, email,name);
                 })
                 .catch(error_=>{
                     return {

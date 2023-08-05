@@ -22,7 +22,7 @@ export default function SignUp() {
   const ref = useRef(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+    const [name,setName] = useState("");
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleChange = (e) => {
@@ -33,7 +33,7 @@ export default function SignUp() {
     console.log(email);
     console.log(password);
     setLoading(true);
-    let response = await signUpFirebase(email, password);
+    let response = await signUpFirebase(email, password,name);
     if (response !== "") {
       setLoading(false);
     } else {
@@ -65,6 +65,25 @@ export default function SignUp() {
                             className={`${Loginstyles.flexCenterleft}`}
                             style={{ flexDirection: "column" }}
                         >
+                            
+                            <TextField
+                                id="outlined-required"
+                                label="Name"
+                                variant="filled"
+                                style={{ flex: 1 }}
+                                placeholder="Hoang Viet"
+                                value={name}
+                                ref={ref}
+                                onChange={(newName) => setName(newName.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="form-group mt-3">
+                        <div
+                            className={`${Loginstyles.flexCenterleft}`}
+                            style={{ flexDirection: "column" }}
+                        >
+                            
                             <TextField
                                 id="outlined-required"
                                 label="Email"
