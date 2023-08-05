@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import firebaseConfig from "./config";
 import { Navigate } from "react-router-dom";
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword,signOut } from "firebase/auth";
 import { Loading } from "../components/additionalComponents/Loading";
 import {getFirestore , setDoc, doc} from "firebase/firestore";
 // Initialize Firebase
@@ -30,6 +30,10 @@ export function useUserAuth() {
     return useContext(userAuthContext);
 }
 
+function getUID(){
+    const user = auth.currentUser;
+    console.log();
+}
 
 export function UserAuthContextProvider({children}){
     const [user,setUser] = useState(undefined);

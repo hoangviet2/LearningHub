@@ -1,4 +1,3 @@
-
 import { Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from "./components";
 import {
   BrowserRouter as Router,
@@ -39,7 +38,9 @@ const App = () => (
       }/>
       <Route path="/louge" element={
         <ProtectedRoute>
-          <WaitingRoom />
+          <ContextProvider>
+            <WaitingRoom />
+          </ContextProvider>
         </ProtectedRoute>
       }/>
       <Route path="/signup" element={
