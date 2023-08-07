@@ -128,7 +128,7 @@ Refer to this [article](https://medium.com/swlh/guide-to-git-a-practical-approac
 
 ## Contact
 
-Hoàng Viêt - hoangviet18306@gmail.com
+Hoàng Việt - hoangviet18306@gmail.com
 
 ---
 
