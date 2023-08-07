@@ -2,20 +2,24 @@ import { people01, people02, people03, facebook, instagram, linkedin, twitter, a
 
 export const navLinks = [
   {
-    id: "home",
+    id: "#home",
     title: "Home",
   },
   {
-    id: "features",
+    id: "#features",
     title: "Features",
   },
   {
-    id: "product",
+    id: "#product",
     title: "Product",
   },
   {
-    id: "clients",
+    id: "#clients",
     title: "Clients",
+  },
+  {
+    id:"dashboard",
+    title:"Dashboard",
   },
 ];
 
@@ -23,23 +27,23 @@ export const features = [
   {
     id: "feature-1",
     icon: star,
-    title: "Rewards",
+    title: "Phòng học nhóm ",
     content:
-      "The best credit cards offer some tantalizing combinations of promotions and prizes",
+      "Tạo ra không gian học theo nhóm nhỏ cùng bạn bè hoặc những người lạ.",
   },
   {
     id: "feature-2",
     icon: shield,
-    title: "100% Secured",
+    title: "Bảng tin (Newsfeed)",
     content:
-      "We take proactive steps make sure your information and transactions are secure.",
+      "Một mạng xã hội tập trung vào nội dung học tập bổ ích, vừa giải trí, vừa nạp kiến thức mới.",
   },
   {
     id: "feature-3",
     icon: send,
-    title: "Balance Transfer",
+    title: "Chat bot giải đáp bài tập",
     content:
-      "A balance transfer credit card can save you a lot of money in interest charges.",
+      "Cung cấp đáp án cho bài tập, giải thích cụ thể và hỗ trợ trò chuyện cùng chat bot.",
   },
 ];
 

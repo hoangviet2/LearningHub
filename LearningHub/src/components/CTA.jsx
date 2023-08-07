@@ -1,5 +1,5 @@
 import styles from "../style";
-import Button from "./Button";
+import Buttonss from "./Button";
 
 const CTA = () => (
   <section className={`${styles.flexCenter} ${styles.marginY} ${styles.padding} sm:flex-row flex-col bg-black-gradient-2 rounded-[20px] box-shadow`}>
@@ -12,7 +12,7 @@ const CTA = () => (
     </div>
 
     <div className={`${styles.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10`}>
-      <Button />
+      <Buttonss />
     </div>
   </section>
 );

@@ -14,6 +14,7 @@ import WaitingRoom from "./components/WaitingRoom";
 import Newsfeed from "./Pages/Newsfeeds";
 import {Ecommerce} from "./Pages";
 import ZegoView from "./components/ZegoCloud";
+import "./index.css"
 const App = () => (
   <UserAuthContextProvider>
     <Routes>
