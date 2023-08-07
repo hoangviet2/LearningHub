@@ -18,7 +18,9 @@ import { doc, getDoc } from "firebase/firestore";
 import firebaseConfig from "../firebase/config";
 import { Grid } from "@mui/material";
 import { loadModels } from '../face-api/face-api';
+import {Header} from "../dashboardComponents";
 import ZegoView from "./ZegoCloud";
+import {Button} from '../dashboardComponents';
 loadModels();
 const WaitingRoom = () => {
   const [userData,setUserData] = useState({});
@@ -82,9 +84,20 @@ const WaitingRoom = () => {
                 
                       <Navbar userData={userData} />
                     </div>
-                    <div>
-                      <ZegoView/>
+                    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+                      <Header category="Page" title="Learning Rooms" />
+                      <div className="flex gap-10 flex-wrap justify-center bg-white rounded-3xl">
+                        <div className="mt-6">
+                          <Button
+                            color="white"
+                            bgColor={"blue"}
+                            text="Create your own room"
+                            borderRadius="10px"
+                          />
+                        </div>
+                      </div>
                     </div>
+                    <Outlet />
                     
                   </div>
                 )}

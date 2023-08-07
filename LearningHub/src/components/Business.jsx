@@ -1,6 +1,6 @@
 import { features } from "../constants";
 import styles, { layout } from "../style";
-import Buttonss from "./Button";
+import Button from "./Button";
 import "../index.css"
 
 const FeatureCard = ({ icon, title, content, index }) => (
@@ -29,7 +29,7 @@ const Business = () =>  (
         Từ phòng học nhóm đến chatbot, những tính năng tiên tiến của StudyAId chắc chắn sẽ giúp việc học của bạn trở nên hiệu quả và thú vị hơn đó!
       </p>
 
-      <Buttonss styles={`mt-10`} />
+      <Button styles={`mt-10`} />
     </div>
 
     <div className={`${layout.sectionImg} flex-col`}>

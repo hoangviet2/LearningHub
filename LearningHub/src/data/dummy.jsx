@@ -485,7 +485,7 @@ export const links = [
     links: [
       {
         name: 'Leaning Room',
-        link: 'louge',
+        link: 'lounge',
         icon: <AiOutlineShoppingCart />,
       },
     ],

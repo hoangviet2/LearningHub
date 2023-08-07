@@ -41,16 +41,15 @@ const App = () => (
           <Login />
         </UnAuthRoute>
       }/>
-      <Route path="/louge" element={
+      <Route path="/lounge" element={
         <ProtectedRoute>
           <ContextProvider>
             <WaitingRoom />
-
           </ContextProvider>
         </ProtectedRoute>
       }>
-        <Route path="" element={
-          <ZegoView/>
+        <Route path="join" element={
+          <ZegoView />
         }/>
       </Route>
       <Route path="/signup" element={

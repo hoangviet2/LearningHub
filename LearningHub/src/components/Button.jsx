@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 
 
-const Buttonss = ({ styles }) => {
+const Button = ({ styles }) => {
   const [navigate,isnavigate] = useState(false);
 
   return(
@@ -17,4 +17,4 @@ const Buttonss = ({ styles }) => {
   );
 }
 
-export default Buttonss;
+export default Button;
