@@ -80,7 +80,7 @@ const ZegoView = () => {
       if (camera !== null) {
         const ticking = setInterval(async () => {
           await getFaces();
-        }, 10000);
+        }, 5000);
         return () => {
           clearInterval(ticking);
         };

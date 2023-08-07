@@ -56,6 +56,33 @@ const Ecommerce = () => {
       console.log("Document data:", docSnap.data());
       setUserData(docSnap.data());
       setUserData(() => ({ ...docSnap.data() }));
+      const emotion = docSnap.data()["emotion"];
+      console.log(emotion["angry"]);
+      //console.log([...emotion.values()]);
+      const array = [emotion["angry"],emotion["disgusted"],emotion["fearful"],emotion["happy"],emotion["neutral"],emotion["sad"],emotion["surprised"]];
+      console.log(array);
+      const processedData = {
+        labels: ["Angry","disgusted","fearful","happy","neutral","sad","surprised"],
+        datasets: [
+          {
+            label: "Minutes",
+            data: array,
+            backgroundColor: [
+              "#FF0000",
+              "#ADD8E6",
+              "#32cd32",
+              "#ffff00",
+              "#808080",
+              "#800080",
+              "#FAFA33",
+            ],
+            borderColor: "black",
+            borderWidth: 2,
+          },
+        ],
+        
+      }
+      setProcessData(processedData);
     } else {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
@@ -74,8 +101,7 @@ const Ecommerce = () => {
               </p>
             </div>
           </div>
-          
-            {!userData ? (<></>):(
+            {!userData && !processData ? (<></>):(
               <div className="mt-10 flex gap-10 flex-wrap justify-center">
                 <div className=" border-r-1 border-color m-4 pr-10">
                   <div>User feeling status</div>
@@ -85,6 +111,7 @@ const Ecommerce = () => {
                 </div>
                 <div>
                   <Chartt plot_data={processData}/>
+                  
                 </div>
               </div>
               )}
