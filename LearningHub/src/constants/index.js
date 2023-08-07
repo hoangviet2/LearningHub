@@ -11,7 +11,7 @@ export const navLinks = [
   },
   {
     id:"dashboard",
-    title:"Dashboard",
+    title:"Đăng kí",
   },
 ];
 
