@@ -39,7 +39,6 @@ export function getUrlParams(
 
 const ZegoView = () => {
     const roomID = getUrlParams().get('roomID') || randomID(5);
-    const [userData,setUserData] = useState({});
     const [leaving,setLeaving] = useState(false);
     const auth = getAuth();
     const app = initializeApp(firebaseConfig);
@@ -138,9 +137,7 @@ const ZegoView = () => {
           (
             <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl" ref={myMeeting}></div>
           )}
-          {!userData?(<></>):(
-            <Webcam audio={false} ref={camera} style={{height:1}} />
-          )}
+          <Webcam audio={false} ref={camera} style={{height:1}} />
         </div>
     )
 }
