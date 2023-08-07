@@ -1,5 +1,4 @@
-# LearningHub
-###Round 2 STEM HACK
+# LearningHub Round 2 STEM HACK
 
 
 
@@ -81,6 +80,12 @@ Install [NodeJS LTS](https://nodejs.org/en/)
 
    ```sh
    git clone https://github.com/hoangviet2/LearningHub.git
+   ```
+
+2. Get to the repo
+
+   ```sh
+   cd LearningHub
    ```
 
 2. Install NPM packages
