@@ -12,7 +12,8 @@ import SignUp from "./components/Signup";
 import { ContextProvider } from './contexts/ContextProvider';
 import WaitingRoom from "./components/WaitingRoom";
 import Newsfeed from "./Pages/Newsfeeds";
-
+import {Ecommerce} from "./Pages";
+import ZegoView from "./components/ZegoCloud";
 const App = () => (
   <UserAuthContextProvider>
     <Routes>
@@ -26,6 +27,9 @@ const App = () => (
           </ContextProvider>
         </ProtectedRoute>
       }>
+        <Route path="" element={
+          <Ecommerce/>
+        }/>
         <Route path="newsfeed" element={
           <Newsfeed />
         }/>
@@ -40,9 +44,14 @@ const App = () => (
         <ProtectedRoute>
           <ContextProvider>
             <WaitingRoom />
+
           </ContextProvider>
         </ProtectedRoute>
-      }/>
+      }>
+        <Route path="" element={
+          <ZegoView/>
+        }/>
+      </Route>
       <Route path="/signup" element={
         <UnAuthRoute>
           <SignUp/>

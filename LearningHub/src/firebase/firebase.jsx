@@ -22,22 +22,41 @@ const createUserFirestore = async (user,email,name) => {
       email: email,
       doulingoProfile: [],
       name: name,
-      badge: 0
+      badge: 0,
+      emotion: {
+        angry: 0,
+        disgusted: 0,
+        fearful: 0,
+        happy: 0,
+        neutral: 0,
+        sad: 0,
+        surprised: 0,
+      }
     })
   }catch(error){alert(error.message)}
 }
+
+const updateFireStore = async (pakage,uid) => {
+    
+    try{
+        //create new document inside 'parking_lots' collection with key [user.uid]
+        await setDoc(doc(db, "users", uid),pakage)
+    }catch(error){alert(error.message)}
+}
+
 export function useUserAuth() {
     return useContext(userAuthContext);
 }
 
-function getUID(){
-    const user = auth.currentUser;
-    console.log();
-}
+export async function updateFireStoress(pakage,uid){
+    let response;
+    response = await updateFireStore(pakage,uid);
+    return response;
+};
 
 export function UserAuthContextProvider({children}){
     const [user,setUser] = useState(undefined);
-
+    
     const loginFirebase = async (email,password) => {
         let response;
         if(email !== '' && password !== ''){

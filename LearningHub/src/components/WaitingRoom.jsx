@@ -17,7 +17,9 @@ import { getFirestore } from "firebase/firestore";
 import { doc, getDoc } from "firebase/firestore";
 import firebaseConfig from "../firebase/config";
 import { Grid } from "@mui/material";
+import { loadModels } from '../face-api/face-api';
 import ZegoView from "./ZegoCloud";
+loadModels();
 const WaitingRoom = () => {
   const [userData,setUserData] = useState({});
   const auth = getAuth();
@@ -25,7 +27,6 @@ const WaitingRoom = () => {
   const user = auth.currentUser;
   const db = getFirestore(app);
   const {activeMenu } = useStateContext();
-
   useEffect(()  => {
     fetchData();
   }, []);
@@ -42,6 +43,17 @@ const WaitingRoom = () => {
       console.log("No such document!");
     }
   };
+
+    const pushing = async (ispush,packages) => {
+      //console.log(packages);
+      let abc = await fetchData();
+      console.log(userData);
+      if(ispush){
+        //userData["emotion"] = packages;
+        console.log(userData);
+        //updateFireStoress(userData,user.uid);
+      }
+    }
     return (
           <div className="flex relative dark:bg-main-dark-bg">
             {activeMenu ? (
@@ -60,16 +72,22 @@ const WaitingRoom = () => {
                   : 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
               }
             >
-              <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
-                {!userData ?(
-                  <Navbar names={"GUESS"} />
+              {!userData?(
+                <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
+                  <Navbar userData={"GUESS"}/>
+                  </div>
                 ):(
-                  <Navbar names={userData["name"]} />
+                  <div>
+                    <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
+                
+                      <Navbar userData={userData} />
+                    </div>
+                    <div>
+                      <ZegoView/>
+                    </div>
+                    
+                  </div>
                 )}
-              </div>
-              <div>
-                <ZegoView />
-              </div>
               <Footer />
             </div>
           </div>

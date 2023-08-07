@@ -154,6 +154,33 @@ export const footerLinks = [
   },
 ];
 
+export const pie_chart_sample = [
+  {
+    id:1,
+    year: "angry",
+    userGrain: 12,
+    userLost: 1234,
+  },
+  {
+    id:2,
+    year: "Happy",
+    userGrain: 23,
+    userLost: 1234,
+  },
+  {
+    id:3,
+    year: "SAD",
+    userGrain: 30,
+    userLost: 123,
+  },
+  {
+    id:4,
+    year: "Neutrual",
+    userGrain: 50,
+    userLost: 123,
+  },
+];
+
 export const socialMedia = [
   {
     id: "social-media-1",

@@ -5,6 +5,17 @@ import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import { Navigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import Camera from "./Camera";
+import { detectFaces } from "../face-api/face-api";
+import { Loading } from "./additionalComponents/Loading";
+import { useUserAuth } from "../firebase/firebase";
+import { height } from "@mui/system";
+import { updateFireStoress } from "../firebase/firebase";
+import { getAuth } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
+import firebaseConfig from "../firebase/config";
+
 function randomID(len) {
   let result = '';
   if (result) return result;
@@ -28,8 +39,66 @@ export function getUrlParams(
 
 const ZegoView = () => {
     const roomID = getUrlParams().get('roomID') || randomID(5);
-    const hiding = useRef(null);
+    const [userData,setUserData] = useState({});
     const [leaving,setLeaving] = useState(false);
+    const auth = getAuth();
+    const app = initializeApp(firebaseConfig);
+    const user = auth.currentUser;
+    const db = getFirestore(app);
+    // Camera section
+    const [result,setResult] =  useState({
+      angry: 0,
+      disgusted: 0,
+      fearful: 0,
+      happy: 0,
+      neutral: 0,
+      sad: 0,
+      surprised: 0,
+    });
+    const camera = useRef();
+
+    //Camera function
+    const getFaces = async () => {
+      if (camera.current !== null) {
+        let faces = null;
+        faces = await detectFaces(camera.current.video);
+        if(faces!== null){
+          console.log(faces);
+          setResult(faces);
+          let emoji = faces.map((data) => data.expressions.asSortedArray()[0].expression);
+          if(result[emoji[0]] !== undefined){
+            result[emoji[0]] += 1;
+            setResult(result);
+            console.log(result);
+          }
+        }
+        
+      }
+    };
+    
+    useEffect(() => {
+      if (camera !== null) {
+        const ticking = setInterval(async () => {
+          await getFaces();
+        }, 10000);
+        return () => {
+          clearInterval(ticking);
+        };
+  
+      }
+    }, []);
+
+    const update = async () => {
+      const Reff = doc(db, "users", user.uid.toString());
+      let abc = await updateDoc(Reff, {
+        emotion: result
+      });
+      if(abc!== undefined){
+        setLeaving(true);
+      }
+      
+    }
+
     let myMeeting = async (element) => {
      // generate Kit Token
     const appID = APP_ID;
@@ -38,12 +107,14 @@ const ZegoView = () => {
     
      // Create instance object from Kit Token.
     const zp = ZegoUIKitPrebuilt.create(kitToken);
-      // start the call
+    
+
+
     zp.joinRoom({
         container: element,
-        onLeaveRoom:() =>{
-            console.log("HI");
-            setLeaving(true);
+        onLeaveRoom: () => {
+          update();
+          setLeaving(true);
         },
         sharedLinks: [
           {
@@ -61,14 +132,16 @@ const ZegoView = () => {
     }
 
     return(
-        <>
-            {leaving?(<Navigate to={"/dashboard"}/>):(
-                <>
-                    {/* <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl" ref={myMeeting}></div> */}
-                    <Webcam muted={false} ref={hiding} style={{height:0}} />
-                </>
-            )}
-        </>
+        
+        <div>
+          {leaving?(<Navigate to={"/dashboard"}/>):
+          (
+            <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl" ref={myMeeting}></div>
+          )}
+          {!userData?(<></>):(
+            <Webcam audio={false} ref={camera} style={{height:1}} />
+          )}
+        </div>
     )
 }
 export default ZegoView;
