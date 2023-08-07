@@ -131,8 +131,8 @@ Sử dụng mạng xã hội không có mục đích mục đích.
 - [x] Real Time Emotion Analysis using TensorFlow
 - [x] Adding Models from face-api
 - [x] Add Static Analysis of a picture
-- [x] Add CI/CD using github actions
-- [x] Deploy on Netlify
+
+To Infinity and Beyond nhận thức được tầm quan trọng của việc tìm kiếm giải pháp cho các vấn đề, đổi mới liên tục và cải tiến sản phẩm phù hợp. Kế hoạch tiếp theo sau khi vượt qua Round 2 và tham gia Round 3 thứ nhất sẽ là nghiên cứu kỹ hơn về người dùng. Cụ thể, nhóm sẽ đưa sản phẩm vào sử dụng ở quy mô nhỏ, tiến hành khảo sát để thu thập dữ liệu và đánh giá mức độ yêu thích, hài lòng của các bạn học sinh. Từ đó tiếp tục xác định vấn đề chưa giải quyết và phát triển sản phẩm. Thứ hai là phát triển và hoàn thiện các tính năng. Nhóm sẽ tạo ra số phòng học và đánh dấu theo các mục (chủ đề, môn học,...) giúp học sinh dễ dàng tìm kiếm nhóm phù hợp để cùng nhau học tập. Chúng mình hiện đang triển khai các tính năng trên nền tảng web, vì vậy nhóm hy vọng sẽ có nhiều cơ hội hơn để cải thiện và tối ưu hóa các chức năng cũng như công cụ học tập trong tương lai. Sau đó, chúng mình sẽ đưa vào ứng dụng dành cho thiết bị di động để phổ biến rộng rãi đến các đối tượng khác nhau.
 
 ## Contributing
 
