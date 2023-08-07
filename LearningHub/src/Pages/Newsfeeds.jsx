@@ -7,12 +7,13 @@ import "../dashBoard/dashboard.css"
 import { useState, useEffect } from 'react';
 
 const Newsfeed = () => {
+  const [editingg,setEditingg] =  useState(false);
 
   const [data, setData] = useState([]);
   const [selectedFeed, setSelectedFeed] = useState({});
   const [editing, setEditing] = useState(false);
   useEffect(() => {    
-    fetch('http://127.0.0.1:5000/api/get_posts')
+    fetch('https://feeds.xiganglive.vip/addpost')
       .then(response => response.json())
       .then(data => setData(data))
       .catch(error => console.error('Error fetching data:', error));
@@ -20,7 +21,7 @@ const Newsfeed = () => {
 
   const handleDelete = (id) => {
     // Make a DELETE request to the API to delete the feed with the given id
-    fetch(`http://127.0.0.1:5000/api/post_delete/${id}`, {
+    fetch(`https://feeds.xiganglive.vip/deletepost/${id}`, {
       method: 'DELETE',
     })
     .then(() => {
@@ -37,15 +38,16 @@ const Newsfeed = () => {
 
   const handleAdd = () => {
     setSelectedFeed({});
-    setEditing(true);
+    setEditingg(true);
   };
 
   const handleSave = () => {
+    setEditingg(false);
     // Make a POST or PUT request to the API to add or update the feed
     const method = selectedFeed.id ? 'PUT' : 'POST';
     const url = selectedFeed.id
-      ? `http://127.0.0.1:5000/api/post_update/${selectedFeed.id}`
-      : 'http://127.0.0.1:5000/api/add_post';
+      ? `https://feeds.xiganglive.vip/editpost${selectedFeed.id}`
+      : 'https://feeds.xiganglive.vip/postadd';
       
     fetch(url, {
       method,
@@ -71,15 +73,14 @@ const Newsfeed = () => {
 
   
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+    <div classnameName="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header category="Page" title="News Feed" />
    
-      <h1>POSTs</h1>
-      <button class='btn btn-primary' onClick={handleAdd}>Add New Feed</button>
+      <h1>POSTS</h1>
+      <button classname='btn btn-primary' onClick={handleAdd}>Add New Feed</button>
 
-      {editing && (
+      {editingg && (
           <div>
-           
           <h1>{selectedFeed.id ? 'Edit Feed' : 'Add New Feed'}</h1>
           <span>Title:</span>
           <input
@@ -97,13 +98,13 @@ const Newsfeed = () => {
             onChange={(e) => setSelectedFeed({ ...selectedFeed, content: e.target.value })}
           />
            <h2></h2>
-          <button class="btn btn-primary" onClick={handleSave}>Save</button>
+          <button classname="btn btn-primary" onClick={handleSave}>Save</button>
           <h2></h2>
         </div>
 
       )}
 
-        <table class='table' >
+        <table classname='table' >
           <thead>
             <tr>
               <th>ID</th>
@@ -111,24 +112,23 @@ const Newsfeed = () => {
               <th>Content</th>
               <th >Action</th>
             </tr>
-          </thead>
-          <tbody>
-            {data.map(item => (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.title}</td>
-                <td>{item.content}</td>
-                <td>
-                <button class='btn btn-primary' onClick={() => handleEdit(item)}>Edit</button>
-                <button class='btn btn-danger' onClick={() => handleDelete(item.id)}>Delete</button>
-
-
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+        <tbody>
+          {data.map(item => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.title}</td>
+              <td>{item.content}</td>
+              <td>
+                <button onClick={() => handleEdit(item)}>Edit</button>
+                <button onClick={() => handleDelete(item.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
+
 export default Newsfeed;
