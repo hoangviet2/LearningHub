@@ -15,7 +15,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { doc, updateDoc } from "firebase/firestore";
 import firebaseConfig from "../firebase/config";
-
+import { ButtonGoHome } from "../dashboardComponents/Button";
 function randomID(len) {
   let result = '';
   if (result) return result;
@@ -134,8 +134,9 @@ const ZegoView = () => {
         
         onLeaveRoom: () => {
           update();
+          
+          
           //zp.destroy();
-          setLeaving(true);
         },
         sharedLinks: [
           {
@@ -154,7 +155,15 @@ const ZegoView = () => {
 
     return(
         
-        <div>
+        <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+          <div className="mt-6">
+                          <ButtonGoHome
+                            color="white"
+                            bgColor={"blue"}
+                            text="Go Back DashBoard"
+                            borderRadius="10px"
+                          />
+          </div>
           {leaving?(<Navigate to={"/dashboard"}/>):
           (
             <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl" ref={myMeeting}></div>
