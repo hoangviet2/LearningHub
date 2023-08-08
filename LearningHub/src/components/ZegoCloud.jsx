@@ -134,7 +134,7 @@ const ZegoView = () => {
         
         onLeaveRoom: () => {
           update();
-          zp.destroy();
+          //zp.destroy();
           setLeaving(true);
         },
         sharedLinks: [
