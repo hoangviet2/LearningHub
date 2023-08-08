@@ -8,7 +8,7 @@ const Button = ({ icon, bgColor, color, bgHoverColor, size, text, borderRadius, 
   const [isclicked,setclicked] = useState(false);
   return (
     <>
-    {isclicked ? (<Navigate to={"/lounge/join"}/>):(
+    {isclicked ? (<Navigate to={"/join"}/>):(
       <button
         type="button"
         onClick={() => {

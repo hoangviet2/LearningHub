@@ -48,10 +48,12 @@ const App = () => (
           </ContextProvider>
         </ProtectedRoute>
       }>
-        <Route path="join" element={
-          <ZegoView />
-        }/>
       </Route>
+      <Route path="/join" element={
+        <ProtectedRoute>
+          <ZegoView />
+        </ProtectedRoute>
+      }/>
       <Route path="/signup" element={
         <UnAuthRoute>
           <SignUp/>

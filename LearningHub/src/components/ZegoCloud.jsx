@@ -36,6 +36,16 @@ export function getUrlParams(
   return new URLSearchParams(urlStr);
 }
 
+async function generateToken(tokenServerUrl , userID) {
+  // Obtain the token interface provided by the App Server
+  return fetch(
+    `${tokenServerUrl}/access_token?userID=${userID}&expired_ts=7200`,
+    {
+      method: 'GET',
+    }
+  ).then((res) => res.json());
+}
+
 
 const ZegoView = () => {
     const roomID = getUrlParams().get('roomID') || randomID(5);
@@ -74,12 +84,17 @@ const ZegoView = () => {
         
       }
     };
+
+    function refreshPage() {
+      window.location.reload(false);
+    }
     
     useEffect(() => {
+      
       if (camera !== null) {
         const ticking = setInterval(async () => {
           await getFaces();
-        }, 5000);
+        }, 1000);
         return () => {
           clearInterval(ticking);
         };
@@ -97,8 +112,9 @@ const ZegoView = () => {
       }
       
     }
-
+    
     let myMeeting = async (element) => {
+    const roomID = getUrlParams().get('roomID') || randomID(5);
      // generate Kit Token
     const appID = APP_ID;
     const serverSecret = SEVER_SECRETE;
@@ -106,13 +122,19 @@ const ZegoView = () => {
     
      // Create instance object from Kit Token.
     const zp = ZegoUIKitPrebuilt.create(kitToken);
-    
+    const token = await generateToken(
+      'https://nextjs-token.vercel.app/api',
+      randomID(5)
+    );
+    //const kitToken = ZegoUIKitPrebuilt.generateKitTokenForProduction(appID,token,roomID,  randomID(5),randomID(5));
 
 
     zp.joinRoom({
         container: element,
+        
         onLeaveRoom: () => {
           update();
+          zp.destroy();
           setLeaving(true);
         },
         sharedLinks: [
