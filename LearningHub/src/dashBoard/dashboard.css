@@ -11,6 +11,10 @@ body{
   font-family: "Open Sans", sans-serif;
 }
 
+body {
+  margin: 100;
+}
+
 .sidebar {
   box-shadow: rgb(113 122 131 / 11%) 0px 7px 30px 0px;
 }
