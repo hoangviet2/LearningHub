@@ -1,4 +1,4 @@
-# LearningHub Round 2 STEM HACK
+# LearningHub - Tool for better student
 
 
 
@@ -12,7 +12,7 @@
   </strong>
   <p align="center">
     <strong>
-      Trang Web tích hợp AI nhằm đánh giá và nâng cao chất lượng học của học sinh
+      AI-Integrated Website to Evaluate and Enhance Students' Learning Quality
     </strong>
   </p>
 </p>
@@ -42,10 +42,10 @@
   </ol>
 </details>
 
-## Tổng quan về Study Aid
+## Overview of Study Aid
 
-- Tối ưu hoá việc học bằng các AI model.
-- Một Website giúp kết nối các bạn học sinh có cùng sở thích môn học
+- Optimize learning through AI models.
+- A website that connects students with shared academic interests.
 
 
 ---
@@ -103,26 +103,30 @@ Install [NodeJS LTS](https://nodejs.org/en/)
 
 ## Roadmap
 ### Inspiration & Solutions
-- Ứng dụng rộng rãi của trí tuệ nhân tạo trong học tập thời điểm hiện tại.
-- Mong muốn tạo ra một nền tảng giáo dục hiện đại, hiệu quả và toàn diện dựa trên trí tuệ nhân tạo, đáp ứng nhu cầu đa dạng của học sinh. Trang lấy cảm hứng từ một số khó khăn hiện hành và cấp bách mà học sinh ngày nay phải đối mặt:
-Sử dụng mạng xã hội không có mục đích mục đích.
-+ Theo một khảo sát gần đây, giới trẻ Việt Nam dành trung bình 7 giờ mỗi ngày sử dụng mạng xã hội. (Nguồn: abei.gov.vn)
-+ Đặc điểm nổi bật của các trang mạng xã hội hiện nay là tốc độ và tính phong phú của thông tin nhưng lại bị trộn lẫn giữa thông tin tốt và xấu, thiếu định hướng (...) Trước các tính năng hấp dẫn và lôi cuốn, người dùng dễ rơi vào “biển thông tin” hỗn loạn một cách vô thức, dẫn đến xao nhãng học tập, giảm năng suất lao động, căng thẳng tinh thần và chìm đắm vào thế giới ảo. (Nguồn: hatinh.dcs.vn)
-⇒ Giải pháp & Chức năng: Newsfeed: theo kịp xu hướng của thế hệ Gen Z và tạo ra nội dung chất lượng cao, bằng cách xây dựng một trang mạng xã hội tập trung vào nội dung học tập bổ ích, “bắt trend”, những giờ tự học sẽ không bị bó buộc, các bạn có thể vừa giải trí, vừa biết thêm kiến thức mới.
-2. Học tập, làm việc nhóm kém hiệu quả.
-+ Chưa có một nền tảng phòng họp theo nhóm hiệu quả để học sinh, sinh viên lập nhóm trao đổi, làm việc, chia sẻ, sắp xếp, theo dõi tiến độ công việc,... (gọn gàng, bảo mật, linh hoạt, dễ sử dụng).
-+ Thiếu tập trung. 
-+ Gặp khó khăn trong việc quản lý thời gian, ưu tiên và đặt ra mục tiêu khả thi. 
-⇒ Giải pháp & Chức năng: Study room (không gian phòng học ảo theo nhóm nhỏ): cho phép người học tạo không gian học theo nhóm nhỏ cùng bạn bè hoặc người lạ. Nhóm sẽ kết hợp tính năng theo dõi cảm xúc của người học trong quá trình và sử dụng trí tuệ nhân tạo (AI) đưa ra lời khuyên. Trên hết, chúng mình muốn thúc đẩy tính tò mò, khuyến khích niềm vui thích đúng nghĩa đối với việc học thay vì chỉ chú ý đến số giờ ngồi vào bàn không hiệu quả.
-3. Đáp án có sẵn trên mạng không giúp học sinh hiểu bài. Trên mạng có nhiều trang cung cấp đáp án bài tập nhưng thường không đưa ra giải thích cụ thể hoặc nếu có thì phần lớn không đầy đủ, rối rắm. Học sinh nhận được câu trả lời nhưng không hoàn toàn hiểu và làm bài tập kém hiệu quả.
-⇒ Giải pháp: Hỏi đáp bài tập cùng chat bot: cung cấp đáp án cho bài tập, giải thích cụ thể và hỗ trợ trò chuyện cùng chat bot giúp các bạn học sinh không chỉ hiểu rõ kiến thức mà còn biết cách tối ưu hóa công nghệ AI vào việc học.
-### Features (Hiện tại đang có)
-1. Sử dụng AI nhằm kiểm tra cảm xúc của các bạn học sinh
-2. Tạo ra phòng học (meeting) cho các bạn học sinh học với nhau
-### Features (Đang phát triển)
-1. Tạo ra một chuyên mục gồm các chia sẻ về các kiến thức học tập
-2. Chatbot cho các phòng học nhằm có thể hỏi đáp
-3. Tạo ra danh mục các phòng học phù hợp với cá nhân.
+- Broad application of artificial intelligence in current education.
+- Our goal is to create a modern, efficient, and comprehensive educational platform powered by AI that meets the diverse needs of students.
+The project is inspired by several urgent and ongoing issues that students face today:
+1. Aimless Use of Social Media
++ According to a recent survey, Vietnamese youth spend an average of 7 hours per day on social media. (Source: abei.gov.vn)
++ The standout features of current social networks are their speed and abundance of information, but this content is often mixed with both good and bad information and lacks direction. (...) With their appealing features, these platforms can easily trap users in a chaotic “sea of information,” leading to distraction from studies, decreased productivity, mental stress, and a deep dive into the virtual world. (Source: hatinh.dcs.vn)
+⇒ Solution & Feature: Newsfeed: Stay on trend with Gen Z and generate high-quality content by building a social network focused on educational, trendy, and entertaining content. This way, self-study time won’t feel restrictive—students can both enjoy themselves and gain new knowledge.
+2. Ineffective Studying and Teamwork
++ There's a lack of an efficient group meeting platform for students to form study groups, share ideas, manage tasks, monitor progress, etc. (It needs to be organized, secure, flexible, and user-friendly.)
++ Poor focus. 
++ Struggles with time management, prioritization, and setting achievable goals. 
+⇒ Solution & Feature: Study Room (Small Group Virtual Study Spaces)
+Allows students to create small-group virtual study spaces with friends or even strangers. These groups include emotion-tracking features to monitor learners’ emotional states, and use AI to provide helpful advice. Above all, we want to spark curiosity and foster genuine enjoyment of learning, rather than just tracking how many hours someone is seated at a desk.
+3. Online Answers Don't Help Students Truly Understand?
+Many websites provide answers to exercises but often without clear or complete explanations. Students get the answers but don’t fully grasp the material, leading to ineffective learning.
+⇒ Solution: Homework Q&A with Chatbot
+Provides answers to questions with detailed explanations and supports conversations with a chatbot. This helps students not only understand the content but also learn how to effectively apply AI in their studies.
+### Current Features
+1. Use of AI to detect students’ emotional states.
+2. Creation of virtual study rooms for collaborative learning.
+### Features in Development
+1. A section dedicated to shared learning tips and knowledge.
+2. Chatbot integration in study rooms for Q&A.
+3. Personalized categorization of study rooms.
 
 ### Things To do
 
@@ -132,7 +136,7 @@ Sử dụng mạng xã hội không có mục đích mục đích.
 - [x] Adding Models from face-api
 - [x] Add Static Analysis of a picture
 
-To Infinity and Beyond nhận thức được tầm quan trọng của việc tìm kiếm giải pháp cho các vấn đề, đổi mới liên tục và cải tiến sản phẩm phù hợp. Kế hoạch tiếp theo sau khi vượt qua Round 2 và tham gia Round 3 thứ nhất sẽ là nghiên cứu kỹ hơn về người dùng. Cụ thể, nhóm sẽ đưa sản phẩm vào sử dụng ở quy mô nhỏ, tiến hành khảo sát để thu thập dữ liệu và đánh giá mức độ yêu thích, hài lòng của các bạn học sinh. Từ đó tiếp tục xác định vấn đề chưa giải quyết và phát triển sản phẩm. Thứ hai là phát triển và hoàn thiện các tính năng. Nhóm sẽ tạo ra số phòng học và đánh dấu theo các mục (chủ đề, môn học,...) giúp học sinh dễ dàng tìm kiếm nhóm phù hợp để cùng nhau học tập. Chúng mình hiện đang triển khai các tính năng trên nền tảng web, vì vậy nhóm hy vọng sẽ có nhiều cơ hội hơn để cải thiện và tối ưu hóa các chức năng cũng như công cụ học tập trong tương lai. Sau đó, chúng mình sẽ đưa vào ứng dụng dành cho thiết bị di động để phổ biến rộng rãi đến các đối tượng khác nhau.
+"To Infinity and Beyond" recognizes the importance of problem-solving, continuous innovation, and product improvement. After advancing past Round 2 and entering the first stage of Round 3, the next plan is to conduct more in-depth user research. Specifically, we will roll out the product on a small scale, conduct surveys to collect data, and evaluate students’ satisfaction and preferences. From there, we’ll identify unresolved issues and further improve the product. Secondly, we’ll continue to develop and enhance features. The team will create categorized study rooms (by topic, subject, etc.) to help students easily find suitable groups to study with. Currently, the platform is being developed for the web, and the team hopes to have more opportunities to improve and optimize its functions and learning tools. Eventually, we plan to launch a mobile app version to expand access to a wider range of users.
 
 ## Contributing
 
@@ -148,7 +152,7 @@ Refer to this [article](https://medium.com/swlh/guide-to-git-a-practical-approac
 
 ## Contact
 
-Hoàng Việt - hoangviet18306@gmail.com
+Viet Hoang - hoangviet18306@gmail.com
 
 ---
 
